@@ -1,0 +1,10 @@
+policies:
+  - name: rds-03-mark-unencrypted
+    resource: aws.rds
+    filters:
+      - StorageEncrypted: false
+    actions:
+      - type: mark-for-op
+        tag: c7n_rds_unencrypted
+        op: delete
+        days: 14

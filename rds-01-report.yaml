@@ -1,0 +1,3 @@
+policies:
+  - name: rds-01-report
+    resource: aws.rds

@@ -1,0 +1,5 @@
+policies:
+  - name: rds-02-list-unencrypted
+    resource: aws.rds
+    filters:
+      - StorageEncrypted: false

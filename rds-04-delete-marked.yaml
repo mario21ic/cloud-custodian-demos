@@ -1,0 +1,13 @@
+# explore: review existing rds instances
+# apply scheduled remediations
+policies:
+  - name: rds-04-delete-marked
+    resource: aws.rds
+    filters:
+      - StorageEncrypted: false
+      - type: marked-for-op
+        tag: c7n_rds_unencrypted
+        op: delete
+        skew: 15
+    actions:
+      - type: delete
